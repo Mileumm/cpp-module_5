@@ -1,12 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp" 
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("Default", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : AForm("Form", 72, 45)
 {
 	
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name) : AForm(name, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Form", 72, 45), _target(target)
 {
 	
 }
@@ -39,16 +39,24 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() <= getExecGrade() && getSigned() == true)
 	{
-		std::cout << executor.getName() << " executed " << getName() << std::endl;
+		std::cout << executor.getName() << " executed this form." << std::endl;
+		srand(static_cast<unsigned int>(time(NULL)));
+		if (rand() % 2 == 1)
+		{
+			std::cout << "Congratulations, "<< _target << " has been robotomized successfully !" << std::endl;
+			std::cout << "BZZZZZZZZZRRRRRRRRTTTT!" << std::endl;
+		}
+		else
+		{
+			std::cout << "Sorry, "<< _target << " the robotomy failed ..." << std::endl;
+		}
 	}
 	else if (executor.getGrade() > getExecGrade())
 	{
-		std::cout << executor.getName() << " can't executed " << getName() << " because ";
 		throw GradeTooLowException();
 	}
 	else
 	{
-		std::cout << executor.getName() << " can't executed " << getName() << " because ";
 		throw NotSigned();
 	}
 }

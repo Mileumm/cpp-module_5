@@ -1,6 +1,8 @@
 #ifndef ROBOFORM_H
 # define ROBOFORM_H
 
+#include <ctime> 
+#include <cstdlib>
 #include <exception>
 #include <string>
 #include <iostream>
@@ -10,9 +12,11 @@ class Bureaucrat;
 
 class RobotomyRequestForm : public AForm
 {
+	private :
+		std::string _target;
 	public :
 		RobotomyRequestForm();
-		RobotomyRequestForm(std::string name);
+		RobotomyRequestForm(std::string target);
 		~RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm& obj);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& obj);

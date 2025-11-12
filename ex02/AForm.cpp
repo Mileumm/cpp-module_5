@@ -84,6 +84,11 @@ const std::string& AForm::getName(void) const
 	return (_name);
 }
 
+std::string AForm::getTarget(void) const
+{
+	return (_target);
+}
+
 const char* AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high");

@@ -13,6 +13,7 @@ class AForm
 		bool _signed;
 		const int _signGrade;
 		const int _execGrade;
+		std::string _target;
 	public :
 		AForm();
 		AForm(std::string name, int signGrade, int execGrade);
@@ -25,6 +26,7 @@ class AForm
 		const int& getExecGrade(void) const;
 		const std::string& getName(void) const;
 		virtual void execute(Bureaucrat const & executor) const = 0;
+		std::string getTarget() const;
 
 		class GradeTooHighException : public std::exception
 		{

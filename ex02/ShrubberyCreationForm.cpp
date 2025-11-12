@@ -1,12 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp" 
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Form", 145, 137)
 {
 	
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : AForm(name, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Form", 145, 137), _target(target)
 {
 	
 }
@@ -39,16 +39,28 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() <= getExecGrade() && getSigned() == true)
 	{
-		std::cout << executor.getName() << " executed " << getName() << std::endl;
+		std::cout << executor.getName() << " executed this form." << std::endl;
+		std::string name = _target + "_shrubbery";
+		std::ofstream file(name.c_str());
+		if (!file)
+			std::cout << "Erreur : can't create file." << std::endl;
+		file << "      /\\" << std::endl;
+		file << "     /**\\" << std::endl;
+		file << "    /****\\" << std::endl;
+		file << "   /******\\" << std::endl;
+		file << "  /********\\" << std::endl;
+		file << " /**********\\" << std::endl;
+		file << "/************\\" << std::endl;
+		file << "      ||" << std::endl;
+		file << "      ||" << std::endl;
+		file.close();
 	}
 	else if (executor.getGrade() > getExecGrade())
 	{
-		std::cout << executor.getName() << " can't executed " << getName() << " because ";
 		throw GradeTooLowException();
 	}
 	else
 	{
-		std::cout << executor.getName() << " can't executed " << getName() << " because ";
 		throw NotSigned();
 	}
 }

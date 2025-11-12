@@ -47,20 +47,34 @@ const std::string& Bureaucrat::getName(void) const
 
 void Bureaucrat::incrementGrade(void)
 {
-	_grade--;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	else if (_grade > 150)
-		throw GradeTooLowException();
+	try
+	{
+		if ((_grade - 1) < 1)
+			throw GradeTooHighException();
+		else if ((_grade - 1) > 150)
+			throw GradeTooLowException();
+		_grade--;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 void Bureaucrat::decrementGrade(void)
 {
-	_grade++;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	else if (_grade > 150)
-		throw GradeTooLowException();
+	try
+	{
+		if ((_grade + 1) < 1)
+			throw GradeTooHighException();
+		else if ((_grade + 1) > 150)
+			throw GradeTooLowException();
+		_grade++;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 const int& Bureaucrat::getGrade(void) const
@@ -76,7 +90,7 @@ void Bureaucrat::signForm(AForm& form)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << form.getName() << " couldn’t sign " << _name << " because ";
+		std::cout << _name << " couldn’t sign this form that targets" << form.getTarget() << " because ";
         std::cout << e.what() << std::endl;
 	}
 }
@@ -89,7 +103,7 @@ void Bureaucrat::executeForm(AForm const & form) const
 	}
 	catch (std::exception & e)
 	{
-		std::cout << _name << " can't executed " << form.getName() << " because ";
+		std::cout << _name << " can't executed this form that targets " << form.getTarget() << " because ";
         std::cout << e.what() << std::endl;
 	}
 }
