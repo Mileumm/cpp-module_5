@@ -17,7 +17,7 @@ class AForm
 	public :
 		AForm();
 		AForm(std::string name, int signGrade, int execGrade);
-		~AForm();
+		virtual ~AForm();
 		AForm(const AForm& obj);
 		AForm& operator=(const AForm& obj);
 		void beSigned(const Bureaucrat& obj);

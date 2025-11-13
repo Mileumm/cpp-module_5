@@ -1,12 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp" 
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("Form", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45)
 {
 	
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Form", 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
 	
 }

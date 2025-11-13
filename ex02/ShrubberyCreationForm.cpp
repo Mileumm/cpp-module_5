@@ -1,12 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp" 
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Form", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137)
 {
 	
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Form", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
 	
 }

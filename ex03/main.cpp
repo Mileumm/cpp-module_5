@@ -47,6 +47,9 @@ int main(void)
 			std::cout << *Form_4 << std::endl;
 			std::cout << *Form_5 << std::endl;
 			std::cout << *Form_6 << std::endl;
+			delete Form_4;
+			delete Form_5;
+			delete Form_6;
 
 		}
 		catch (std::exception & e)
