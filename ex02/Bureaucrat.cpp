@@ -57,8 +57,7 @@ void Bureaucrat::incrementGrade(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << "Can't increment " << _name << "because "<< '\n';
-		std::cout << e.what() << '\n';
+		std::cout << "Can't increment " << _name << "because " << e.what() << std::endl;
 	}
 }
 
@@ -74,8 +73,7 @@ void Bureaucrat::decrementGrade(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << "Can't decrement " << _name << "because "<< '\n';
-		std::cout << e.what() << '\n';
+		std::cout << "Can't decrement " << _name << "because " << e.what() << std::endl;
 	}
 }
 
@@ -92,8 +90,7 @@ void Bureaucrat::signForm(AForm& form)
 	}
 	catch (std::exception & e)
 	{
-		std::cout << _name << " couldn’t sign "<< form.getName() << " because ";
-        std::cout << e.what() << std::endl;
+		std::cout << _name << " couldn’t sign "<< form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
@@ -105,8 +102,7 @@ void Bureaucrat::executeForm(AForm const & form) const
 	}
 	catch (std::exception & e)
 	{
-		std::cout << _name << " can't executed " << form.getName() << " because ";
-        std::cout << e.what() << std::endl;
+		std::cout << _name << " can't executed " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 

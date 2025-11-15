@@ -33,7 +33,7 @@ int main(void)
 		}
 		catch (std::exception & e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cout << "Can't create bureaucrat because " << e.what() << std::endl;
 		}
 
 	return (0);
