@@ -39,7 +39,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() <= getExecGrade() && getSigned() == true)
 	{
-		std::cout << executor.getName() << " executed this form." << std::endl;
+		std::cout << executor.getName() << " executed ShrubberyCreationForm!" << std::endl;
 		std::string name = _target + "_shrubbery";
 		std::ofstream file(name.c_str());
 		if (!file)

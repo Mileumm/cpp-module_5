@@ -39,7 +39,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() <= getExecGrade() && getSigned() == true)
 	{
-		std::cout << executor.getName() << " executed this form." << std::endl;
+		std::cout << executor.getName() << " executed RobotomyRequestForm!" << std::endl;
 		srand(static_cast<unsigned int>(time(NULL)));
 		if (rand() % 2 == 1)
 		{

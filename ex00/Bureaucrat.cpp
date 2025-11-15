@@ -46,20 +46,36 @@ const std::string& Bureaucrat::getName(void) const
 
 void Bureaucrat::incrementGrade(void)
 {
-	_grade--;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	else if (_grade > 150)
-		throw GradeTooLowException();
+	try
+	{
+		if ((_grade - 1) < 1)
+			throw GradeTooHighException();
+		else if ((_grade - 1) > 150)
+			throw GradeTooLowException();
+		_grade--;
+	}
+	catch(const std::exception& e)
+	{ 	
+		std::cout << "Can't increment " << _name << "because "<< '\n';
+		std::cout << e.what() << '\n';
+	}
 }
 
 void Bureaucrat::decrementGrade(void)
 {
-	_grade++;
-	if (_grade < 1)
-		throw GradeTooHighException();
-	else if (_grade > 150)
-		throw GradeTooLowException();
+	try
+	{
+		if ((_grade + 1) < 1)
+			throw GradeTooHighException();
+		else if ((_grade + 1) > 150)
+			throw GradeTooLowException();
+		_grade++;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Can't decrement " << _name << "because "<< '\n';
+		std::cout << e.what() << '\n';
+	}
 }
 
 const int& Bureaucrat::getGrade(void) const

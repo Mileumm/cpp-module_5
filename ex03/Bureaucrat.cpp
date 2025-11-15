@@ -57,7 +57,8 @@ void Bureaucrat::incrementGrade(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << "Can't increment " << _name << "because "<< '\n';
+		std::cout << e.what() << '\n';
 	}
 }
 
@@ -73,7 +74,8 @@ void Bureaucrat::decrementGrade(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << "Can't decrement " << _name << "because "<< '\n';
+		std::cout << e.what() << '\n';
 	}
 }
 
